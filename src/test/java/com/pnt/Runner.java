@@ -51,15 +51,16 @@ public class Runner {
     @AfterSuite(alwaysRun = true)
     public void generateReport() {
         File reportOutputDirectory = new File("target");
-        List<String> jsonFiles = new ArrayList<String>();
+        List<String> jsonFiles = new ArrayList<>();
         jsonFiles.add("target/cucumber-reports/CucumberTestReport.json");
-        String projectName = "TD Product Pages"; //change accordingly
+        String projectName = "FaceBook"; //change accordingly
         Configuration configuration = new Configuration(reportOutputDirectory, projectName);
         configuration.addPresentationModes(PresentationMode.RUN_WITH_JENKINS);
         configuration.setNotFailingStatuses(Collections.singleton(Status.SKIPPED));
         configuration.setBuildNumber("1");
         configuration.addClassifications("Platform", System.getProperty("os.name"));
-        configuration.addClassifications("Username", "name");
+        configuration.addClassifications("Environment", "QA");
+        configuration.addClassifications("Username", "zan");
         // add multiple config if you want
         ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
         Reportable result = reportBuilder.generateReports();

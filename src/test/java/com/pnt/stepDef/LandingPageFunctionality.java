@@ -22,7 +22,6 @@ public class LandingPageFunctionality {
     public void user_fills_username_field() {
         landingPage = PageFactory.initElements(TestBase.driver, LandingPage.class);
         landingPage.fillEmailField("Test data");
-
     }
 
     @Then("^user fills password field$")
