@@ -16,14 +16,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@CucumberOptions(features = {"src/test/java/com/pnt/features/"},
+@CucumberOptions(features = {"src/test/java/com/pnt/features/Search.feature"}, //change accordingly
         glue = {"com/pnt/stepDef"},
-        //tags = {"@Login","@Logout"},
+        //tags = {"@Smoke"},
         //monochrome = false, // display the console output in readable format
-        //strict = false,      // no declaration of any step , strict = false --> pass , true--> fail
-        //dryRun = false,     // checking if mapping is in place
-        plugin = {"json:target/cucumber-reports/CucumberTestReport.json"}
-)
+        //strict = true,      // no declaration of any step , strict = false --> pass , true--> fail
+        dryRun = false,     // checking if mapping is in place
+        plugin = {"json:target/cucumber-reports/CucumberTestReport.json"})
 public class Runner {
 
     private TestNGCucumberRunner testNGCucumberRunner;
@@ -59,8 +58,8 @@ public class Runner {
         configuration.setNotFailingStatuses(Collections.singleton(Status.SKIPPED));
         configuration.setBuildNumber("1");
         configuration.addClassifications("Platform", System.getProperty("os.name"));
-        configuration.addClassifications("Environment", "QA");
-        configuration.addClassifications("Username", "zan");
+        configuration.addClassifications("Environment", "QA"); //change accordingly
+        configuration.addClassifications("Username", "zan"); //change accordingly
         // add multiple config if you want
         ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
         Reportable result = reportBuilder.generateReports();
