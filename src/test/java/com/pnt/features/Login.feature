@@ -1,6 +1,5 @@
 Feature: Login functionality
 
-  @Smoke
   Scenario: user being able to login successfully
     Given user opens the browser and navigate to facebook.com
     When user fills username field

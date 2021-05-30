@@ -10,7 +10,7 @@ Feature: Search items feature
 
 
   Scenario Outline: user being able to search for java books
-    Given user opens the browser and navigate to amazon.com
+    Given user opens the browser and navigate to amazon.com and setup the POM
     When user can see the search bar
     Then user types <bookName> in the search bar
     And user clicks on search button
@@ -18,6 +18,6 @@ Feature: Search items feature
     And user closes the browser
 
     Examples:
-      | bookName       |
-      | java books     |
-      | selenium books |
+      | bookName             |
+      | data structure books |
+      | selenium books       |
